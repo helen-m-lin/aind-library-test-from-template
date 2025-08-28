@@ -1,0 +1,22 @@
+# Example workflow to use the reusable update-badges workflow
+# This workflow is triggered after CI tests pass to update README badges
+# It updates Python version, interrogate, and coverage badges automatically.
+# * This workflow should be placed in `.github/workflows/update-badges.yml`
+# of your repository.
+# * The workflow uses a service token for authentication to commit changes.
+name: Update README Badges
+
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to main branch
+
+jobs:
+  update-badges:
+    name: Update README badges
+    uses: AllenNeuralDynamics/aind-github-actions/.github/workflows/update-badges.yml@main
+    with:
+      default-branch: main  # Branch to update badges on
+      python-version: '3.10' # Python version for running badge updates
+    secrets:
+      SERVICE_TOKEN: ${{ secrets.SERVICE_TOKEN }}  # Personal access token with repo write permissions

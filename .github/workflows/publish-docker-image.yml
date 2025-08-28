@@ -1,0 +1,24 @@
+# Example workflow to use the reusable publish-docker-image workflow
+# This workflow is triggered by a push to a branch
+# It creates a Docker image and pushes it to GitHub Container Registry.
+# * This workflow should be placed in `.github/workflows/publish-docker-image.yml`
+# of your repository.
+# * The workflow uses a service token for authentication to GitHub Container Registry.
+name: Publish docker image
+
+on:
+  push:
+    branches: [ main, dev ]  # Adjust branches as needed
+  workflow_dispatch:
+
+jobs:
+  publish-docker:
+    name: Publish Docker image
+    uses: AllenNeuralDynamics/aind-github-actions/.github/workflows/publish-docker-image.yml@main
+    with:
+      default-branch: main  # Change to 'dev' if you want to run on the dev branch
+      dockerfile-context: "."  # Adjust if your Dockerfile is in a different location
+      docker-tag: "3.1.1"  # Set the tag you want to use for the Docker image
+      branch-tag: "latest"  # Set a secondary tag for the docker image (e.g., 'latest' for main branch or 'dev' for dev branch)
+    secrets:
+      repo-token: ${{ secrets.GITHUB_TOKEN }}  # Ensure you have a GitHub token with permissions to push to the registry
