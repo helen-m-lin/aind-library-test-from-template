@@ -14,7 +14,7 @@ on:
 jobs:
   publish-docker:
     name: Publish Docker image
-    uses: AllenNeuralDynamics/aind-github-actions/.github/workflows/publish-docker-image.yml@main
+    uses: AllenNeuralDynamics/aind-github-actions/.github/workflows/publish-docker-image.yml@ci-32-trigger-conditions
     with:
       default-branch: main  # Change to 'dev' if you want to run on the dev branch
       dockerfile-context: "."  # Adjust if your Dockerfile is in a different location

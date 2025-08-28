@@ -14,7 +14,7 @@ on:
 jobs:
   update-badges:
     name: Update README badges
-    uses: AllenNeuralDynamics/aind-github-actions/.github/workflows/update-badges.yml@main
+    uses: AllenNeuralDynamics/aind-github-actions/.github/workflows/update-badges.yml@ci-32-trigger-conditions
     with:
       default-branch: main  # Branch to update badges on
       python-version: '3.10' # Python version for running badge updates

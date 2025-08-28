@@ -5,7 +5,7 @@
 #
 # * The concurrency group ensures that only one CI job runs at a time for the
 # same branch or pull request.
-# * This calling workflow should be placed in `.github/workflows/ci-call.yml`
+# * This calling workflow should be placed in `.github/workflows/ci.yml`
 # of your repository.
 name: CI
 
@@ -41,7 +41,7 @@ jobs:
       github.actor != 'github-actions[bot]' &&
       !(github.event_name == 'push' && startsWith(github.event.head_commit.message, 'bump:'))
 
-    uses: AllenNeuralDynamics/aind-github-actions/.github/workflows/ci-uv.yml@main
+    uses: AllenNeuralDynamics/aind-github-actions/.github/workflows/ci.yml@ci-32-trigger-conditions
     with:
       os: ${{ matrix.os }}
       python-version: ${{ matrix.python-version }}
