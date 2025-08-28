@@ -1,0 +1,16 @@
+# Call this workflow like this:
+
+name: Tag
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  bump-version:
+    uses: AllenNeuralDynamics/aind-github-actions/.github/workflows/tag.yml@ci-update-citation.cff-file
+    with:
+      default_branch: main # optional, default: main
+    secrets:
+      SERVICE_TOKEN: ${{ secrets.SERVICE_TOKEN }} # required
