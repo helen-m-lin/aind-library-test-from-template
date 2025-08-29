@@ -9,7 +9,7 @@ import pandas as pd
 
 class MessageHandler:
     """
-    Sample class to handle messages.
+    Simple class to handle messages.
     """
 
     def __init__(self, msg: str):
