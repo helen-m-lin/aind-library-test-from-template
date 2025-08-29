@@ -8,9 +8,6 @@ import pandas as pd
 
 
 class MessageHandler:
-    """
-    Simple class to handle messages.
-    """
 
     def __init__(self, msg: str):
         """
